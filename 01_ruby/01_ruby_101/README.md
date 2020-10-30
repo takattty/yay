@@ -88,6 +88,9 @@ classの戻り値が `:anything` というシンボルである理由は、 `def
 
 この様に、Rubyではほとんどの構文が式であり、戻り値を持ちます。特にcaseやifはよく使うので、覚えておいてください。
 
+> チェリー本 P60
+> 式＝値を返し、結果を変数に代入出来るの。　文＝値を返さず、変数に代入できないの。
+
 # 真偽値の考え方
 
 > 参考：かんたんRuby 06-01 制御構造 P163
@@ -105,6 +108,11 @@ puts "hoge" if FalseClass # => hoge が出力される、FalseClassはClassク�
 puts "hoge" if false # => hoge が出力されない
 puts "hoge" if nil # => hoge が出力されない
 ```
+
+> irb(main):003:0> FalseClass.class
+> => Class
+> irb(main):004:0> false.class,s
+> => FalseClass
 
 また、Rubyはほとんどのものが値を返す式なので、次のようなことも起こりえます
 
@@ -126,9 +134,9 @@ Rubyでは、全てがオブジェクトです。そして、すべてのメソ�
 
 ```ruby
 class Hoge
-  attr_accessor :piyo
+  attr_accessor :piyo　# この子はゲッターとセッターの処理をまとめてる。
   def foo
-    @piyo ||= "piyo"
+    @piyo ||= "piyo" # cherry P174 自己代入。 value ||= anything valueがnil or falseだとanythingを代入。
   end
 end
 
