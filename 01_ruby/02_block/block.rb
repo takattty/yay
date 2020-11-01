@@ -15,4 +15,26 @@
 # 2つ目の引数を加える前に、必ずこの `unknown_number` の戻り値を、1つ目の引数の各数値に加えてから計算してください
 # また、 `unknown_number` メソッドは、一度しか呼び出すことはできません
 class LearnBlock
+  def ext_sum(arg1, arg2, &blk)
+    if block_given?
+      join = arg1 + arg2
+      result = blk.call(join)
+    else
+      join = arg1 + arg2
+    end
+  end
+
+  def search_unknown(nums, arg)
+    newArray = []
+    unNum = unknown_number # 42
+    nums.each do |num| # 配列の各要素が入っている
+      newNum = num + unNum # 2つ目の引数を加える前にunknown_numberを加えてる。
+      result = newNum + arg # 2つ目の引数を加える
+      if result % 5 == 0
+        newArray.push(num)
+      end
+    end
+    # ここでpメソッドで確認したら出来てる。だがsearch_unkcownには上手く返ってない
+    newArray # これ書いたらちゃんとテスト通ったな。でもなんで通ったかわからない。最後に評価された式がこの子になったから？
+  end
 end
