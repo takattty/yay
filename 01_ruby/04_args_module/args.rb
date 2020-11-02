@@ -26,3 +26,52 @@
 #         Configure 'sugoi' as 'oniyabai'
 #         Configure 'foo' as 'iihanashi'
 #         Configure 'hoge' as 'uhyo-'
+
+
+class Args
+  def calc(arg1, arg2, arg3 = arg2)
+    if arg1.class != String
+      stringArg1 = arg1.to_s
+      newString = stringArg1*arg2
+    else
+      newString = arg1*arg2
+    end
+    Array.new(arg3, newString) # new(size, val)
+  end
+
+  def count_object(array: [], keyword:)
+    count = 0
+    if array.empty? == false
+      array.each do |n|
+        if n == keyword
+          count += 1
+        end
+      end
+      # count # この子が大事
+    else
+      # count
+    end
+    count
+  end
+
+  def configure(benri: benri_value, sugoi: sugoi_value, **options)
+    result = ""
+    optionsHash = []
+    if options.empty? == false
+      result << "Configure 'benri' as '#{benri}'\n" + "Configure 'sugoi' as '#{sugoi}'\n"
+      options.each do |key, value| # { :c_key => value }
+        stringKey = key.to_s
+        if stringKey.include?("c_") == true
+          deleteC_Key = stringKey.delete('c_')
+          optionsHash.push([deleteC_Key, value])
+        end
+      end
+      sortOptionsHash = optionsHash.sort
+      sortOptionsHash.each do |option|
+        result << "Configure '#{option[0]}' as '#{option[1]}'\n"
+      end
+    else
+      result << "Configure 'benri' as '#{benri}'\n" + "Configure 'sugoi' as '#{sugoi}'\n"
+    end
+  end
+end
