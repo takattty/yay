@@ -11,8 +11,8 @@ class Idioms
     else # arg == "test"
       begin
         raise DoubleError # 意図的に例外を発生させる
-      rescue DoubleError # 例外が発生した場合の処理
-        DoubleError
+      rescue => e # 例外が発生した場合の処理
+        e
       end
     end
   end

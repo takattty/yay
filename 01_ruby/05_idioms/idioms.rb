@@ -16,11 +16,11 @@ class Idioms
         stringArg*2
       end
     else # arg == "test"
-      begin
-        raise DoubleError # 意図的に例外を発生させる
-      rescue DoubleError # 例外が発生した場合の処理
-        DoubleError
-      end
+      # begin
+      #   raise (DoubleError) # 意図的に例外を発生させる
+      # rescue DoubleError # 例外が発生した場合の処理
+      # end
+      raise DoubleError
     end
   end
 end

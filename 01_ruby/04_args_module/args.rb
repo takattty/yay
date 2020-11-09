@@ -54,7 +54,7 @@ class Args
     count
   end
 
-  def configure(benri: benri_value, sugoi: sugoi_value, **options)
+  def configure(benri:, sugoi:, **options)
     result = ""
     optionsHash = []
     if options.empty? == false
@@ -73,5 +73,6 @@ class Args
     else
       result << "Configure 'benri' as '#{benri}'\n" + "Configure 'sugoi' as '#{sugoi}'\n"
     end
+    puts result
   end
 end
