@@ -15,12 +15,13 @@
 
 class Private
   def string_key=(value)
-    if value.class == "String"
-      self.key = string
-    else
-      stringValue = value.to_s
-      self.key = stringValue
-    end
+    # if value.class == "String"
+    #   self.key = string
+    # else
+    #   stringValue = value.to_s
+    #   self.key = stringValue
+    # end
+    self.key = value.to_s unless value.class == "String"
   end
 
   private
