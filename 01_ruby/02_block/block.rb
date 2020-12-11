@@ -31,7 +31,7 @@ class LearnBlock
       newNum = num + unNum # 2つ目の引数を加える前にunknown_numberを加えてる。
       result = newNum + arg # 2つ目の引数を加える
       if result % 5 == 0
-        newArray.push(num)
+        newArray << num
       end
     end
     # ここでpメソッドで確認したら出来てる。だがsearch_unkcownには上手く返ってない
