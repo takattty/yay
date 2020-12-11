@@ -16,11 +16,11 @@
 # また、 `unknown_number` メソッドは、一度しか呼び出すことはできません
 class LearnBlock
   def ext_sum(arg1, arg2, &blk)
+    join = arg1 + arg2
     if block_given?
-      join = arg1 + arg2
       result = blk.call(join)
     else
-      join = arg1 + arg2
+      join
     end
   end
 
